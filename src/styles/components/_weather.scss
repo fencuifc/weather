@@ -1,0 +1,89 @@
+.weather{
+    .weatherList{
+      width:auto;
+      display: flex;
+      flex-direction:column;
+       @include respond-to('small') {
+           flex-direction: row;
+        flex-wrap: wrap;
+       }
+      @include respond-to('medium') {
+	       flex-direction: row;
+        flex-wrap: wrap;
+	  }
+        @include respond-to('large') {
+           flex-direction: row;
+            flex-wrap: wrap;
+        }
+      .weatherItem{
+        line-height:50px;
+        color:white;
+        font-size: 20px;
+        text-align: center;
+        width: 125px;
+        padding-top: 10vh;
+        @include respond-to('small') {
+            width:40vw;
+            &:first-child{
+                position: relative;
+                width:80vw;
+            }
+        }
+        @include respond-to('medium') {
+            width:20vw;
+            &:first-child{
+                position: relative;
+                width:80vw;
+            }
+
+        }
+        @include respond-to('large') {
+            flex-direction:row;
+            padding-top: 0vh;
+            width: 125px;
+            &:first-child{
+                width: 125px;
+            };
+        }
+        .wi{
+        	font-size: 30px;
+        }
+        .temp{
+        	span:first-child{
+        		font-size: 25px;
+    			padding-right: 10%;
+        	}
+        	span:nth-child(2){
+        		color: #ffffff6b;
+        	}
+        }
+        .date{
+    		color: #ffffff6b;
+        }
+        .state{
+			font-size: 15px;
+			color: #ffffff6b;
+        }
+        &:first-child{
+            position: relative;
+        	.wi{
+				font-size:100px;
+                position: relative;
+                bottom: 7vh;
+        	}
+            .date{
+                font-size:40px;
+            }
+            .state{
+                font-size:25px;
+            }
+        };
+      }
+    }
+}
+
+.open+.weather{
+    flex: 4;
+    position: relative;
+    left: 15vh;
+}

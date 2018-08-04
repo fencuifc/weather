@@ -1,0 +1,34 @@
+@charset 'UTF-8';
+
+// 1. Configuration and helpers
+@import
+  'abstracts/variables',
+  'abstracts/mixins';
+
+// 2. Vendors
+@import
+  "~meyer-reset-sass",
+  '~normalize-scss/sass/normalize';
+
+
+// 3. Base stuff
+@import
+  'base/fonts';
+
+
+// 4. Layout-related sections
+@import
+  'layout/body';
+
+// 5. Components
+@import
+  'components/themeSelector',
+  'components/weather',
+  'components/location';
+
+
+// 6. Page-specific styles
+@import
+  'pages/home';
+
+

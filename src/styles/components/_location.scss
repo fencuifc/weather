@@ -1,0 +1,22 @@
+.cityInfo{
+    align-self: flex-end;
+    font-size: 13px;
+    line-height: 30px;
+    bottom: 10vh;
+    flex: 1;
+    width: 100vw;
+    display: flex;
+    position: relative;
+    right: 25vw;
+    top: auto;
+    @include respond-to('small') {
+    	top:auto
+       }
+      @include respond-to('medium') {
+		top:auto
+	  }
+        @include respond-to('large') {
+		top: auto;
+      }
+
+}

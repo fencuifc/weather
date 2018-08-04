@@ -1,0 +1,82 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+
+
+
+
+.main{
+	display: flex;
+    align-items: center;
+    height: 100%;
+    min-height: 100vh;
+    .menu{
+    	align-self: flex-start;
+      flex: 1;
+    }
+}
+
+
+.close{
+  > .menuBtn {
+    display:block;
+    padding: 20px;
+  }
+  .search{
+    display:none;
+  }
+  .closeBtn{
+  	display:none;
+  }
+}
+
+.open{
+  height:100%;
+  width:250px;
+  position:fixed;
+  z-index: 1;
+  top:0;
+  left:0;
+  background-color: $sidemenu-color;
+  overflow-x:hidden;
+  transition:0.5s;
+
+  .closeBtn{
+    display: block;
+    color: #ae9a9a;
+    font-size: 25px;
+    position: absolute;
+    left: 220px;
+    right: 0px;
+    top: 10px;
+  }
+
+  >.menuBtn{
+    display: none;
+  }
+  .search{
+    form{
+      font-size:20px;
+      margin: 20px 10px;
+      color:black;
+      span{
+        color:black;
+      }
+      input{
+       border: azure;
+        margin: 15px 0px;
+        font-style: italic;
+        background: transparent;
+        border-bottom: 1px solid #b11919;
+        font-size: 15px;
+      }
+      ul{
+        font-size: 15px;
+        font-style: italic;
+      }
+    }
+  }
+
+
+}
+
