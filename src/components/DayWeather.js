@@ -38,6 +38,10 @@ class DayWeather extends Component {
 
 	render() {
 		const { currentLocation } = this.props;
+		let currentWeather = currentLocation.consolidated_weather;
+		if(currentWeather.length > 5){
+			currentWeather = currentWeather.pop();
+		}
 
 		const options = currentLocation.consolidated_weather.map(r => (
 			<li key={r.id} className="weatherItem">

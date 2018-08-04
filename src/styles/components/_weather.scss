@@ -1,19 +1,31 @@
 .weather{
+    @include respond-to('large') {
+        display: flex;
+        min-height: 80vh;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
     .weatherList{
-      width:auto;
-      display: flex;
-      flex-direction:column;
+        width: 125px;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
        @include respond-to('small') {
            flex-direction: row;
-        flex-wrap: wrap;
+            flex-wrap: wrap;
+            width: 80vw;
        }
       @include respond-to('medium') {
 	       flex-direction: row;
-        flex-wrap: wrap;
+            flex-wrap: wrap;
+            width: 80vw;
 	  }
         @include respond-to('large') {
            flex-direction: row;
             flex-wrap: wrap;
+                width: 625px;
         }
       .weatherItem{
         line-height:50px;
