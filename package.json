@@ -48,6 +48,6 @@
     "watch": "webpack --watch",
     "lint": "./node_modules/.bin/eslint ./src"
   },
-  "author": "Santhosh Sundar",
+  "author": "Fen",
   "license": "MIT"
 }
