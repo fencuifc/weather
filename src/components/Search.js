@@ -3,18 +3,16 @@ import PropTypes from "prop-types";
 
 class Search extends Component {
 	constructor(props) {
-		super(props);
-	};
-	state = { searchInput: this.props.searchTerm };
-	handleOnChange = event => {
+	super(props);
+	this.state = { searchInput: this.props.searchTerm };
+	this.handleOnChange = event => {
 		this.setState({
 			searchInput: event.target.value
 		});
-
 		this.props.fetchLoctions(event.target.value);
 	};
 
-	selectCity = event => {
+	this.selectCity = event => {
 		console.log(event.target);
 		this.setState({
 			searchInput: event.target.dataset.value
@@ -25,6 +23,7 @@ class Search extends Component {
 			event.target.dataset.value
 		);
 	};
+	}
 
 	render() {
 		const { searchTerm, searchResult } = this.props;
@@ -63,7 +62,8 @@ class Search extends Component {
 Search.propTypes = {
 	fetchLoctions: PropTypes.func.isRequired,
 	selectLocation: PropTypes.func.isRequired,
-	searchTerm: PropTypes.string
+	searchTerm: PropTypes.string,
+	searchResult: PropTypes.array
 };
 
 export default Search;

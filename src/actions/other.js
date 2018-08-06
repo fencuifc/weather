@@ -40,13 +40,13 @@ export const selectLocation = (woeid,city) => {
 			 "searchTerm":city
 		});
 		dispatch(receiveLoctions([]));
-		dispatch(fetchWeather(woeid));
+		return dispatch(fetchWeather(woeid));
 	};
 };
 
 export const fetchWeather = woeid => {
 	return dispatch => {
-		axios
+		return axios
 			.get("/api/location/"+woeid+"/")
 			.then(function(response) {
 				console.log(response.data);
