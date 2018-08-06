@@ -10,7 +10,6 @@ export const fetchLoctions = searchTerm => {
 		axios
 			.get("/api/location/search/?query="+searchTerm)
 			.then(function(response) {
-				//console.log("done");
 				console.log(response.data);
 				dispatch(receiveLoctions(response.data));
 			})
@@ -50,7 +49,6 @@ export const fetchWeather = woeid => {
 		axios
 			.get("/api/location/"+woeid+"/")
 			.then(function(response) {
-				console.log("done2222");
 				console.log(response.data);
 				dispatch(receiveWeather(response.data));
 			})

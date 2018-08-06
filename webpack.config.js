@@ -4,7 +4,7 @@ const webpack = require("webpack");
 
 module.exports = {
   entry: ["./src/index.js", "./src/styles/main.scss"],
-  devtool: 'inline-source-map',
+  devtool: 'eval-cheap-module-source-map',
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "./public/dist")
@@ -15,11 +15,11 @@ module.exports = {
         test: /\.scss/,
         loader: ExtractTextPlugin.extract(["css-loader", "sass-loader"])
       },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loaders: "eslint-loader",
-      },
+      // {
+      //   test: /\.js$/,
+      //   exclude: /node_modules/,
+      //   loaders: "eslint-loader",
+      // },
       {
         test: /\.js$/,
         exclude: /node_modules/,
