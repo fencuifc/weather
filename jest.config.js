@@ -1,4 +1,7 @@
 module.exports = {
   verbose: true,
-  testURL: "http://localhost:8080"
+  testURL: "http://localhost:8080",
+  "setupFiles": [
+    "./setupJest.js"
+  ]
 }

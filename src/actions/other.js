@@ -7,7 +7,7 @@ export const fetchLoctions = searchTerm => {
 			"type": actionTypes.FETCH_LOCATIONS,
 			searchTerm
 		});
-		axios
+		return axios
 			.get("/api/location/search/?query="+searchTerm)
 			.then(function(response) {
 				console.log(response.data);
