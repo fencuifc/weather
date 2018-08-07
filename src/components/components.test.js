@@ -5,7 +5,7 @@ import Search from "./Search";
 import ThemeSelector from "./ThemeSelector";
 import DayWeather from "./DayWeather";
 import LocationInfo from "./LocationInfo";
-import Menu from "./Menu";
+// import Menu from "./Menu";
 
 
 Enzyme.configure({ adapter: new Adapter() });
