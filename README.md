@@ -26,7 +26,14 @@ npm run build
 ### Test:
 ```
 
-npm test
+npm run test
+
+```
+
+### Lint:
+```
+
+npm run lint
 
 ```
 #### Note:

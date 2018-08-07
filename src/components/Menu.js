@@ -30,7 +30,8 @@ class Menu extends Component {
 }
 
 Menu.propTypes = {
-	toggleMenu: PropTypes.func.isRequired
+	toggleMenu: PropTypes.func.isRequired,
+	isMenuOpen: PropTypes.bool.isRequired
 };
 
 export default Menu;

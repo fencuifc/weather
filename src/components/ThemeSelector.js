@@ -28,7 +28,7 @@ class ThemeSelector extends Component {
 		return (
 			<div className="theme">
 				<h3>Theme</h3>
-				<div class="themeSelector" data-selecedTheme={selectedTheme}>
+				<div className="themeSelector" data-selecedtheme={selectedTheme}>
 					<div class="roundCorner">
 						<table>{createTable(themes)}</table>
 					</div>
