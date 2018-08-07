@@ -59,6 +59,10 @@
     "lint": "./node_modules/.bin/eslint ./src",
     "test": "jest"
   },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
   "author": "Fen",
   "license": "MIT"
 }

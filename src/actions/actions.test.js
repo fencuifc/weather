@@ -1,20 +1,21 @@
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
-import * as menuActions from "./menuActions";
 import * as actions from "../actions";
 import * as actionTypes from "../constants/ActionTypes";
 import mockAxios from "jest-mock-axios";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
+
+// cleaning up the mess left behind the previous test
 afterEach(() => {
-	// cleaning up the mess left behind the previous test
 	mockAxios.reset();
 });
 
 describe("Test actions", () => {
+	//** Menu actions **
 	describe("Menu actions", () => {
-		it("ToggleMenu action", () => {
+		it("TOGGLE_MENU action", () => {
 			const expectedAction = {
 				type: actionTypes.TOGGLE_MENU
 			};
@@ -23,9 +24,9 @@ describe("Test actions", () => {
 			expect(store.getActions()).toEqual([expectedAction]);
 		});
 	});
-
-	describe("Seach Location action", () => {
-		it("creates RECEIVE_LOCATIONS when FETCH_LOCATIONS has been done", () => {
+	//** Location actions **
+	describe("Location actions", () => {
+		it("FETCH_LOCATIONS and RECEIVE_LOCATIONS", () => {
 			let catchFn = jest.fn(),
 				thenFn = jest.fn();
 
@@ -49,20 +50,18 @@ describe("Test actions", () => {
 				.dispatch(actions.fetchLoctions("new york"))
 				.then(thenFn)
 				.catch(catchFn);
-
+			//expect calling correct api
 			expect(mockAxios.get).toHaveBeenCalledWith(
 				"/api/location/search/?query=new york"
 			);
-
 			mockAxios.mockResponse({ data: mockData });
+			//expect all other action are triggered with mock data
 			expect(store.getActions()).toEqual(expectedActions);
 		});
 	});
-
-	//2347591, New York
-
-	describe("Select location action", () => {
-		it("creates action when SELECT_LOCATION has been done", () => {
+	//** SELECT_LOCATION and RECEIVE_WEATHER actions **
+	describe("Weather actions", () => {
+		it("SELECT_LOCATION, FETCH_LOCATIONS and RECEIVE_WEATHER", () => {
 			let catchFn = jest.fn(),
 				thenFn = jest.fn();
 
@@ -131,12 +130,26 @@ describe("Test actions", () => {
 				.dispatch(actions.selectLocation(2459115, "New York"))
 				.then(thenFn)
 				.catch(catchFn);
-
+			//expect calling correct api
 			expect(mockAxios.get).toHaveBeenCalledWith(
 				"/api/location/2459115/"
 			);
 			mockAxios.mockResponse({ data: mockData });
+			//expect all other action are triggered with mock data
 			expect(store.getActions()).toEqual(expectedActions);
 		});
 	});
+	//** selectTheme actions **
+	describe("Theme actions", () => {
+		it("SELECT_THEME action", () => {
+			const expectedAction = {
+				type: actionTypes.SELECT_THEME,
+				theme: "selectedTheme"
+			};
+			const store = mockStore({});
+			store.dispatch(actions.selectTheme("selectedTheme"));
+			expect(store.getActions()).toEqual([expectedAction]);
+		});
+	});
+
 });
