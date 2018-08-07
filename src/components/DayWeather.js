@@ -68,4 +68,14 @@ class DayWeather extends Component {
 	}
 }
 
+DayWeather.propTypes = {
+	consolidated_weather: PropTypes.arrayOf(PropTypes.shape({
+     weather_state_abbr: PropTypes.string.isRequired,
+     min_temp: PropTypes.number.isRequired,
+     max_temp: PropTypes.number.isRequired,
+     applicable_date: PropTypes.string.isRequired,
+     weather_state_name: PropTypes.string.isRequired
+   }))
+};
+
 export default DayWeather;

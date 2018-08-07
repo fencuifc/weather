@@ -63,7 +63,10 @@ Search.propTypes = {
 	fetchLoctions: PropTypes.func.isRequired,
 	selectLocation: PropTypes.func.isRequired,
 	searchTerm: PropTypes.string,
-	searchResult: PropTypes.array
+	searchResult: PropTypes.arrayOf(PropTypes.shape({
+     title: PropTypes.string.isRequired,
+     woeid: PropTypes.number.isRequired
+   }))
 };
 
 export default Search;

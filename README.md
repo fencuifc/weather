@@ -23,6 +23,12 @@ npm run build
 
 ```
 
+### Test:
+```
+
+npm test
+
+```
 #### Note:
 * Changes made to your CSS / JS triggers a full page auto-reload.
 * Running a build writes the ```bundle.js``` and ```bundle.css``` to the ```/public/dist/``` directory.
@@ -46,18 +52,11 @@ npm run build
 |  ├─ index.html              # Contains root element to mount your app.
 └─ src/
    ├─ actions/                # Create actions here.
-   |  ├─ 
    ├─ components/             # Create components here
-   |  ├─ 
-   |  ├─ 
    |─ containers/             # Containers bridge Components with the State.
-   |  ├─ 
-   |  ├─ 
    ├─ constants/              # Define action types here.
-   |  ├─ 
    ├─ reducers/               # Create reducers here.
-   |  ├─ 
-   |  ├─ index.js             # Combine your reducers here.
+   |  ├─ index.js             # Combine reducers here.
    ├─ styles/                 # All styling goes here.
    |  ├─ main.scss
    ├─ App.js                  # Include your main component(s).

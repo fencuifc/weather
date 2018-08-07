@@ -7,7 +7,7 @@ class LocationInfo extends Component {
 		if (city || state) {
 			return (
 				<div className="cityInfo">
-					<div>{city},{state}</div>
+					<div>{city}, {state}</div>
 				</div>
 			);
 		} else {

@@ -6,40 +6,43 @@ import Search from "../containers/Search";
 class ThemeSelector extends Component {
 	render() {
 		const { themes, selectedTheme } = this.props;
-		
 
-		const createTable = (themes) => {
-			
-			let table=[];
-			for(let i=0; i<3; i++){
+		const createTable = themes => {
+			let table = [];
+			for (let i = 0; i < 3; i++) {
 				let childern = [];
-				themes[i].forEach( (element)=>{
+				themes[i].forEach(element => {
 					childern.push(
-						<td className={element} onClick={e =>{this.props.selectTheme(element)}}></td>)
-				})
+						<td
+							className={element}
+							onClick={e => {
+								this.props.selectTheme(element);
+							}}
+						/>
+					);
+				});
 
-				table.push(<tr>{childern}</tr>)
+				table.push(<tr>{childern}</tr>);
 			}
 			return table;
-			
 		};
 
 		return (
 			<div className="theme">
 				<h3>Theme</h3>
 				<div class="themeSelector">
-					<div>
-					<table>{createTable(themes)}</table>
+					<div class="roundCorner">
+						<table>{createTable(themes)}</table>
 					</div>
 				</div>
 			</div>
 		);
 	}
-};
+}
 
 ThemeSelector.propTypes = {
-	themes: PropTypes.string.isRequired,
-	selectedTheme: PropTypes.array.isRequired,
+	themes: PropTypes.array.isRequired,
+	selectedTheme: PropTypes.string.isRequired,
 	selectTheme: PropTypes.func.isRequired
 };
 

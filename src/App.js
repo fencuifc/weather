@@ -14,7 +14,7 @@ class App extends Component {
 			<div  className={`main ${theme}`} >
 				<Menu />
 				<DayWeather currentLocation={currentLocation} />
-				<LocationInfo city={currentLocation.parent.title} state={currentLocation.title}/>
+				<LocationInfo city={currentLocation.title} state={currentLocation.parent.title}/>
 			</div>
 		);
 	}
