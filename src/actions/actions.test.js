@@ -1,9 +1,8 @@
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import * as menuActions from "./menuActions";
-import * as otherActions from "./other";
+import * as actions from "../actions";
 import * as actionTypes from "../constants/ActionTypes";
-// import fetch from "jest-fetch-mock";
 import mockAxios from "jest-mock-axios";
 
 const middlewares = [thunk];
@@ -20,7 +19,7 @@ describe("Test actions", () => {
 				type: actionTypes.TOGGLE_MENU
 			};
 			const store = mockStore({});
-			store.dispatch(menuActions.toggleMenu());
+			store.dispatch(actions.toggleMenu());
 			expect(store.getActions()).toEqual([expectedAction]);
 		});
 	});
@@ -47,7 +46,7 @@ describe("Test actions", () => {
 			const store = mockStore({});
 
 			store
-				.dispatch(otherActions.fetchLoctions("new york"))
+				.dispatch(actions.fetchLoctions("new york"))
 				.then(thenFn)
 				.catch(catchFn);
 
@@ -129,7 +128,7 @@ describe("Test actions", () => {
 			];
 			const store = mockStore({});
 			store
-				.dispatch(otherActions.selectLocation(2459115, "New York"))
+				.dispatch(actions.selectLocation(2459115, "New York"))
 				.then(thenFn)
 				.catch(catchFn);
 

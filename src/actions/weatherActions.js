@@ -1,32 +1,6 @@
 import * as actionTypes from "../constants/ActionTypes";
+import {receiveLoctions} from "./locationActions"
 import axios from "axios";
-
-export const fetchLoctions = searchTerm => {
-	return dispatch => {
-		dispatch({
-			type: actionTypes.FETCH_LOCATIONS,
-			searchTerm
-		});
-		return axios
-			.get("/api/location/search/?query=" + searchTerm)
-			.then(function(response) {
-				console.log(response.data);
-				dispatch(receiveLoctions(response.data));
-			})
-			.catch(function(error) {
-				console.log(error);
-			});
-	};
-};
-
-export const receiveLoctions = locations => {
-	return dispatch => {
-		return dispatch({
-			type: actionTypes.RECEIVE_LOCATIONS,
-			locations
-		});
-	};
-};
 
 export const selectLocation = (woeid, city) => {
 	return dispatch => {
@@ -52,7 +26,8 @@ export const fetchWeather = woeid => {
 				dispatch(receiveWeather(response.data));
 			})
 			.catch(function(error) {
-				// console.log(error.data);
+				//not handled at moment, as no UI event after this error
+				console.log("/api/location/ error");
 				console.log(error);
 			});
 	};
@@ -63,15 +38,6 @@ export const receiveWeather = location => {
 		return dispatch({
 			type: actionTypes.RECEIVE_WEATHER,
 			location
-		});
-	};
-};
-
-export const selectTheme = theme => {
-	return dispatch => {
-		return dispatch({
-			type: actionTypes.SELECT_THEME,
-			theme
 		});
 	};
 };
