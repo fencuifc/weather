@@ -5,6 +5,10 @@ import Search from "./Search";
 
 Enzyme.configure({ adapter: new Adapter() });
 
+// afterEach(() => {
+//   enzymeWrapper.unmount();
+// });
+
 function searchSetup() {
   const props = {
     fetchLoctions: jest.fn(),
