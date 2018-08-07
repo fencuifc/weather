@@ -3,7 +3,7 @@
 import React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
-import {  fetchLoctions,selectLocation  } from "./actions";//for test
+import { selectLocation  } from "./actions";
 import App from "./App";
 import configureStore from "./configureStore";
 

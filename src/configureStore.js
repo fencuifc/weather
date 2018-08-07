@@ -1,12 +1,10 @@
-import { createStore, compose, applyMiddleware } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import reducers from "./reducers";
 import thunk from "redux-thunk";
 import reduxImmutableStateInvariant from "redux-immutable-state-invariant";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-function configureStoreDev(initialState) {
-  const composeEnhancers = composeWithDevTools({});
-
+function configureStoreDev() {
   const middlewares = [
     // Redux middleware that spits an error on you when you try to mutate your state either inside a dispatch or between dispatches.
     reduxImmutableStateInvariant(),

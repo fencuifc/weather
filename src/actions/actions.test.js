@@ -21,7 +21,6 @@ describe("Test actions", () => {
 			};
 			const store = mockStore({});
 			store.dispatch(menuActions.toggleMenu());
-			console.log(store.getActions());
 			expect(store.getActions()).toEqual([expectedAction]);
 		});
 	});
@@ -68,14 +67,59 @@ describe("Test actions", () => {
 			let catchFn = jest.fn(),
 				thenFn = jest.fn();
 
-			const mockData = [
-				{
-					title: "New York TEST",
-					location_type: "City",
-					woeid: 2459115,
-					latt_long: "40.71455,-74.007118"
-				}
-			];
+			const mockData = {
+				consolidated_weather: [
+					{
+						applicable_date: "2018-08-07",
+						max_temp: 27.122499999999999,
+						min_temp: 21.635000000000002,
+						weather_state_abbr: "lr",
+						weather_state_name: "Light Rain"
+					},
+					{
+						applicable_date: "2018-08-08",
+						max_temp: 27.122499999999999,
+						min_temp: 21.635000000000002,
+						weather_state_abbr: "lr",
+						weather_state_name: "Light Rain"
+					},
+					{
+						applicable_date: "2018-08-09",
+						max_temp: 27.122499999999999,
+						min_temp: 21.635000000000002,
+						weather_state_abbr: "lr",
+						weather_state_name: "Light Rain"
+					},
+					{
+						applicable_date: "2018-08-10",
+						max_temp: 27.122499999999999,
+						min_temp: 21.635000000000002,
+						weather_state_abbr: "lr",
+						weather_state_name: "Light Rain"
+					},
+					{
+						applicable_date: "2018-08-11",
+						max_temp: 27.122499999999999,
+						min_temp: 21.635000000000002,
+						weather_state_abbr: "lr",
+						weather_state_name: "Light Rain"
+					},
+					{
+						applicable_date: "2018-08-12",
+						max_temp: 27.122499999999999,
+						min_temp: 21.635000000000002,
+						weather_state_abbr: "lr",
+						weather_state_name: "Light Rain"
+					}
+				],
+				location_type: "City",
+				parent: {
+					title: "New York",
+					woeid: 2347591
+				},
+				title: "New York",
+				woeid: 2459115
+			};
 
 			const expectedActions = [
 				{ type: actionTypes.SELECT_LOCATION, woeid: 2459115 },

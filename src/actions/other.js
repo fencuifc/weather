@@ -4,18 +4,17 @@ import axios from "axios";
 export const fetchLoctions = searchTerm => {
 	return dispatch => {
 		dispatch({
-			"type": actionTypes.FETCH_LOCATIONS,
+			type: actionTypes.FETCH_LOCATIONS,
 			searchTerm
 		});
 		return axios
-			.get("/api/location/search/?query="+searchTerm)
+			.get("/api/location/search/?query=" + searchTerm)
 			.then(function(response) {
 				console.log(response.data);
 				dispatch(receiveLoctions(response.data));
 			})
 			.catch(function(error) {
 				console.log(error);
-
 			});
 	};
 };
@@ -23,21 +22,21 @@ export const fetchLoctions = searchTerm => {
 export const receiveLoctions = locations => {
 	return dispatch => {
 		return dispatch({
-			"type": actionTypes.RECEIVE_LOCATIONS,
+			type: actionTypes.RECEIVE_LOCATIONS,
 			locations
 		});
 	};
 };
 
-export const selectLocation = (woeid,city) => {
+export const selectLocation = (woeid, city) => {
 	return dispatch => {
 		dispatch({
-			"type": actionTypes.SELECT_LOCATION,
+			type: actionTypes.SELECT_LOCATION,
 			woeid
 		});
 		dispatch({
-			"type": actionTypes.FETCH_LOCATIONS,
-			 "searchTerm":city
+			type: actionTypes.FETCH_LOCATIONS,
+			searchTerm: city
 		});
 		dispatch(receiveLoctions([]));
 		return dispatch(fetchWeather(woeid));
@@ -47,15 +46,14 @@ export const selectLocation = (woeid,city) => {
 export const fetchWeather = woeid => {
 	return dispatch => {
 		return axios
-			.get("/api/location/"+woeid+"/")
+			.get("/api/location/" + woeid + "/")
 			.then(function(response) {
 				console.log(response.data);
 				dispatch(receiveWeather(response.data));
 			})
 			.catch(function(error) {
 				// console.log(error.data);
-								console.log(error);
-
+				console.log(error);
 			});
 	};
 };
@@ -63,19 +61,17 @@ export const fetchWeather = woeid => {
 export const receiveWeather = location => {
 	return dispatch => {
 		return dispatch({
-			"type": actionTypes.RECEIVE_WEATHER,
+			type: actionTypes.RECEIVE_WEATHER,
 			location
 		});
 	};
 };
 
-
 export const selectTheme = theme => {
 	return dispatch => {
 		return dispatch({
-			"type": actionTypes.SELECT_THEME,
+			type: actionTypes.SELECT_THEME,
 			theme
 		});
 	};
 };
-

@@ -27,7 +27,7 @@ class Menu extends Component {
 			</div>
 		);
 	}
-};
+}
 
 Menu.propTypes = {
 	toggleMenu: PropTypes.func.isRequired

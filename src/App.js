@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Menu from "./containers/Menu";
 import DayWeather from "./components/DayWeather";
-import ThemeSelector from "./containers/ThemeSelector";
 import LocationInfo from  "./components/LocationInfo"
 
 

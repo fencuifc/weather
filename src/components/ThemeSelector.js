@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import Search from "../containers/Search";
-
 class ThemeSelector extends Component {
 	render() {
 		const { themes, selectedTheme } = this.props;
@@ -15,7 +13,7 @@ class ThemeSelector extends Component {
 					childern.push(
 						<td
 							className={element}
-							onClick={e => {
+							onClick={() => {
 								this.props.selectTheme(element);
 							}}
 						/>
@@ -30,7 +28,7 @@ class ThemeSelector extends Component {
 		return (
 			<div className="theme">
 				<h3>Theme</h3>
-				<div class="themeSelector">
+				<div class="themeSelector" data-selecedTheme={selectedTheme}>
 					<div class="roundCorner">
 						<table>{createTable(themes)}</table>
 					</div>

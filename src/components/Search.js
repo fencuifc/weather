@@ -3,30 +3,32 @@ import PropTypes from "prop-types";
 
 class Search extends Component {
 	constructor(props) {
-	super(props);
-	this.state = { searchInput: this.props.searchTerm };
-	this.handleOnChange = event => {
-		this.setState({
-			searchInput: event.target.value
-		});
-		this.props.fetchLoctions(event.target.value);
-	};
+		super(props);
+		this.state = { searchInput: this.props.searchTerm };
+		this.handleOnChange = event => {
+			this.setState({
+				searchInput: event.target.value
+			});
+			if (event.target.value) {
+				this.props.fetchLoctions(event.target.value);
+			}
+		};
 
-	this.selectCity = event => {
-		console.log(event.target);
-		this.setState({
-			searchInput: event.target.dataset.value
-		});
+		this.selectCity = event => {
+			console.log(event.target);
+			this.setState({
+				searchInput: event.target.dataset.value
+			});
 
-		this.props.selectLocation(
-			event.target.dataset.woeid,
-			event.target.dataset.value
-		);
-	};
+			this.props.selectLocation(
+				event.target.dataset.woeid,
+				event.target.dataset.value
+			);
+		};
 	}
 
 	render() {
-		const { searchTerm, searchResult } = this.props;
+		const { searchResult } = this.props;
 
 		const options = searchResult.map(r => (
 			<li
@@ -57,16 +59,18 @@ class Search extends Component {
 			</div>
 		);
 	}
-};
+}
 
 Search.propTypes = {
 	fetchLoctions: PropTypes.func.isRequired,
 	selectLocation: PropTypes.func.isRequired,
 	searchTerm: PropTypes.string,
-	searchResult: PropTypes.arrayOf(PropTypes.shape({
-     title: PropTypes.string.isRequired,
-     woeid: PropTypes.number.isRequired
-   }))
+	searchResult: PropTypes.arrayOf(
+		PropTypes.shape({
+			title: PropTypes.string.isRequired,
+			woeid: PropTypes.number.isRequired
+		})
+	)
 };
 
 export default Search;
